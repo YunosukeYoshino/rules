@@ -2,14 +2,46 @@
 
 このリポジトリは、様々なAIアシスタント用のルールセットを集めたものです。各開発環境やフレームワークに特化したAIアシスタンスを最適化することを目的としています。
 
-## ディレクトリ構造
+## リポジトリ構造
 
+```mermaid
+graph TD
+    A[AI Rules Repository] --> B[windsurf]
+    B --> C[shopify]
+    C --> D[.windsurfrules]
+    A --> E[future directories]
+    E --> F[Cline Rules]
+    E --> G[Other AI Rules]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#bfb,stroke:#333,stroke-width:2px
 ```
-.
-├── windsurf/
-│   └── shopify/         # Shopify開発用ルール
-│       └── .windsurfrules
-└── [future directories] # 今後追加予定のAIルール
+
+## ルールセット構造
+
+```mermaid
+mindmap
+    root((AIルール構造))
+        基本動作原則
+            指示の理解
+            分析とプランニング
+            実装と検証
+            フィードバック
+        技術要件
+            コア技術
+            フレームワーク
+            開発ツール
+        品質管理
+            コード品質
+            パフォーマンス
+            セキュリティ
+            UI/UX
+        実装プロセス
+            分析フェーズ
+            実装フェーズ
+            検証フェーズ
+            最終確認
 ```
 
 ## 現在のルールセット
@@ -17,37 +49,53 @@
 ### Windsurf Shopifyルール
 `windsurf/shopify/.windsurfrules` に配置
 
-Shopifyテーマ開発のためのAIアシスタンス特化ルールで、以下を含みます：
-- Shopify特有の技術要件と制約
-- テーマ開発のベストプラクティス
-- プロジェクト構造の規約
-- 品質保証プロトコル
-- パフォーマンス最適化ガイドライン
+```mermaid
+graph LR
+    A[Shopifyルール] --> B[技術要件]
+    A --> C[開発プロセス]
+    A --> D[品質基準]
 
-以下の要素を考慮した一貫性のある高品質なShopifyテーマ開発を実現します：
-- Liquidテンプレートの実装
-- セクションとスニペットの整理
-- アセットの最適化
-- テーマエディタとの連携
-- レスポンシブデザインの実践
+    B --> B1[Liquid]
+    B --> B2[JavaScript]
+    B --> B3[SCSS]
 
-## 今後の拡張予定
+    C --> C1[テンプレート]
+    C --> C2[セクション]
+    C --> C3[スニペット]
 
-今後、以下のルールセットを追加予定：
-- Clineルール
-- その他の特殊な開発環境向けルール
-- フレームワーク固有のルールセット
-- カスタムAIアシスタント設定
+    D --> D1[パフォーマンス]
+    D --> D2[アクセシビリティ]
+    D --> D3[最適化]
+```
 
-## ルールセットの構造
+## 拡張計画
 
-各ルールセットは以下の標準形式に従います：
-1. 基本動作原則
-2. 技術スタックと制約
-3. 品質管理プロトコル
-4. プロジェクト構造規約
-5. 実装プロセス
-6. エラー対応プロトコル
+```mermaid
+timeline
+    title 拡張ロードマップ
+    section 現在
+        Windsurf Shopifyルール
+    section Phase 1
+        Clineルール : 高度な開発支援
+    section Phase 2
+        フレームワーク固有ルール : Next.js/React/Vue
+    section Phase 3
+        特殊環境ルール : Cloud/Mobile/AI
+```
+
+## ルールセットの実装プロトコル
+
+```mermaid
+flowchart TD
+    A[新規ルールセット提案] --> B{要件分析}
+    B --> C[技術スタック定義]
+    C --> D[プロトコル設計]
+    D --> E[実装ガイドライン]
+    E --> F[テストと検証]
+    F --> G{承認}
+    G --> |Yes| H[リポジトリ統合]
+    G --> |No| D
+```
 
 ## 貢献ガイドライン
 
