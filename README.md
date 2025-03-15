@@ -9,14 +9,18 @@ graph TD
     A[AI Rules Repository] --> B[windsurf]
     B --> C[shopify]
     C --> D[.windsurfrules]
+    B --> R[remix-cloudflare]
+    R --> S[.windsurfrules]
     A --> E[cline]
     E --> F[.clinerules]
     A --> G[future directories]
     G --> H[Other AI Rules]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
     style E fill:#bbf,stroke:#333,stroke-width:2px
     style D fill:#bfb,stroke:#333,stroke-width:2px
+    style S fill:#bfb,stroke:#333,stroke-width:2px
     style F fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
@@ -70,6 +74,29 @@ graph LR
     D --> D3[最適化]
 ```
 
+### Windsurf Remix Cloudflareルール
+`windsurf/remix-cloudflare/.windsurfrules` に配置
+
+```mermaid
+graph LR
+    A[Remix Cloudflareルール] --> B[技術スタック]
+    A --> C[開発プロセス]
+    A --> D[デプロイメント]
+
+    B --> B1[Remix]
+    B --> B2[TypeScript]
+    B --> B3[Cloudflare Workers]
+    B --> B4[D1 Database]
+    
+    C --> C1[ルーティング]
+    C --> C2[データローダー]
+    C --> C3[アクション]
+    
+    D --> D1[Wrangler]
+    D --> D2[環境変数]
+    D --> D3[CI/CD]
+```
+
 ### Cline Next.js開発ルール
 `cline/.clinerules` に配置
 
@@ -108,6 +135,7 @@ timeline
     title 拡張ロードマップ
     section 現在
         Windsurf Shopifyルール
+        Windsurf Remix Cloudflareルール
         Cline Next.js開発ルール
     section Phase 1
         AI駆動開発ルール : コード生成最適化
@@ -147,5 +175,6 @@ Cline AIアシスタントでは、`.clinerules` ファイルを直接参照し�
 - *使用方法*: プロンプトに「@cline rules/cline/.clinerules」を含めることで、Next.js開発用の設定を適用します。
 
 ### WindSurf
-WindSurf AIアシスタントでは、`.windsurfrules` ファイルを使用して、Shopify開発に特化した支援を受けられます。
-- *使用方法*: プロンプト内で「@windsurf rules/windsurf/shopify/.windsurfrules」を指定します。
+WindSurf AIアシスタントでは、`.windsurfrules` ファイルを使用して、特定の開発環境に特化した支援を受けられます。
+- *Shopify開発*: プロンプト内で「@windsurf rules/windsurf/shopify/.windsurfrules」を指定します。
+- *Remix Cloudflare開発*: プロンプト内で「@windsurf rules/windsurf/remix-cloudflare/.windsurfrules」を指定します。
