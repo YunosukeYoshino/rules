@@ -9,13 +9,15 @@ graph TD
     A[AI Rules Repository] --> B[windsurf]
     B --> C[shopify]
     C --> D[.windsurfrules]
-    A --> E[future directories]
-    E --> F[Cline Rules]
-    E --> G[Other AI Rules]
+    A --> E[cline]
+    E --> F[.clinerules]
+    A --> G[future directories]
+    G --> H[Other AI Rules]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style E fill:#bbf,stroke:#333,stroke-width:2px
     style D fill:#bfb,stroke:#333,stroke-width:2px
+    style F fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
 ## ルールセット構造
@@ -68,6 +70,37 @@ graph LR
     D --> D3[最適化]
 ```
 
+### Cline Next.js開発ルール
+`cline/.clinerules` に配置
+
+```mermaid
+graph LR
+    A[Next.js開発ルール] --> B[技術スタック]
+    A --> C[開発環境設定]
+    A --> D[AI駆動ルール]
+    A --> E[セキュリティ]
+    A --> F[コーディング規約]
+
+    B --> B1[Next.js]
+    B --> B2[TypeScript]
+    B --> B3[Drizzle]
+    B --> B4[TanStack Query]
+    B --> B5[Hono]
+    
+    C --> C1[VSCode設定]
+    C --> C2[Biome設定]
+    
+    D --> D1[実装ドキュメント]
+    D --> D2[コード生成]
+    D --> D3[知識共有]
+    
+    E --> E1[機密管理]
+    E --> E2[API認証]
+    
+    F --> F1[型安全性]
+    F --> F2[コンポーネント設計]
+```
+
 ## 拡張計画
 
 ```mermaid
@@ -75,10 +108,11 @@ timeline
     title 拡張ロードマップ
     section 現在
         Windsurf Shopifyルール
+        Cline Next.js開発ルール
     section Phase 1
-        Clineルール : 高度な開発支援
+        AI駆動開発ルール : コード生成最適化
     section Phase 2
-        フレームワーク固有ルール : Next.js/React/Vue
+        フレームワーク固有ルール : Vue/React Native
     section Phase 3
         特殊環境ルール : Cloud/Mobile/AI
 ```
@@ -106,3 +140,12 @@ flowchart TD
 4. 複数のAI間での互換性を考慮する
 5. AI固有のベストプラクティスに従う
 
+## AI アシスタント別の使用方法
+
+### Cline
+Cline AIアシスタントでは、`.clinerules` ファイルを直接参照して、特定の開発環境やフレームワークに最適化された支援を提供します。
+- *使用方法*: プロンプトに「@cline rules/cline/.clinerules」を含めることで、Next.js開発用の設定を適用します。
+
+### WindSurf
+WindSurf AIアシスタントでは、`.windsurfrules` ファイルを使用して、Shopify開発に特化した支援を受けられます。
+- *使用方法*: プロンプト内で「@windsurf rules/windsurf/shopify/.windsurfrules」を指定します。
