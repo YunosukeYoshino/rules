@@ -1,0 +1,38 @@
+{
+  "name": "Next.js + Drizzle + Hono Stack",
+  "version": "1.0.0",
+  "documentation": {
+    "frontend": {
+      "framework": "next",
+      "docs": [
+        "frontend/next/components/design.md",
+        "frontend/next/data/fetching.md"
+      ]
+    },
+    "backend": {
+      "database": {
+        "orm": "drizzle",
+        "docs": ["backend/database/drizzle/schema.md"]
+      },
+      "api": {
+        "framework": "hono",
+        "docs": ["backend/api/hono/implementation.md"]
+      }
+    },
+    "integrations": [
+      "integrations/next-drizzle/index.md",
+      "integrations/next-hono/index.md",
+      "integrations/drizzle-hono/index.md"
+    ]
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "drizzle-orm": "^0.29.0",
+    "hono": "^3.0.0"
+  },
+  "conventions": {
+    "component_patterns": "frontend/next/components/patterns.md",
+    "database_schema": "backend/database/drizzle/schema.md",
+    "api_design": "backend/api/hono/implementation.md"
+  }
+}

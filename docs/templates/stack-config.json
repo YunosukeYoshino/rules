@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "スタック構成スキーマ",
+  "description": "アプリケーションスタックの構成を定義します。",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "スタックの名前"
+    },
+    "version": {
+      "type": "string",
+      "description": "スタックのバージョン"
+    },
+    "dependencies": {
+      "type": "object",
+      "description": "スタックの依存関係",
+      "properties": {
+        "nextjs": {
+          "type": "string",
+          "description": "Next.js のバージョン"
+        },
+        "drizzle": {
+          "type": "string",
+          "description": "Drizzle ORM のバージョン"
+        },
+        "hono": {
+          "type": "string",
+          "description": "Hono のバージョン"
+        }
+      },
+      "required": []
+    },
+    "configurations": {
+      "type": "object",
+      "description": "スタックの構成",
+      "properties": {
+        "database_url": {
+          "type": "string",
+          "description": "データベースの URL"
+        },
+        "api_url": {
+          "type": "string",
+          "description": "API の URL"
+        }
+      },
+      "required": []
+    }
+  },
+  "required": ["name", "version"]
+}
