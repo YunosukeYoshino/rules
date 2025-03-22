@@ -1,0 +1,27 @@
+## 技術スタック
+
+- ランタイム
+  - Bun
+- フロントエンド
+  - Next.js (App Router)
+  - TypeScript
+  - Zustand
+  - TanStack Query
+- バックエンド
+  - Hono（API）
+  - Drizzle ORM
+- データベース
+  - Cloudflare D1
+- ホスティング
+  - Cloudflare Workers
+- バリデーション
+  - Zod
+- ユニットテスト
+  - Bun test
+- フォーマッター/リンター
+  - Biome
+- UI フレームワーク
+  - shadcn/ui (Tailwind CSS)
+- 開発手法
+  - ドメイン駆動設計（DDD）
+  - テスト駆動開発（TDD)
