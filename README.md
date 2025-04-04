@@ -6,22 +6,34 @@
 
 ```mermaid
 graph TD
-    A[AI Rules Repository] --> B[windsurf]
-    B --> C[shopify]
-    C --> D[.windsurfrules]
-    B --> R[remix-cloudflare]
-    R --> S[.windsurfrules]
-    A --> E[cline]
-    E --> F[.clinerules]
-    A --> G[future directories]
-    G --> H[Other AI Rules]
+    A[AI Rules Repository] --> R[rules]
+    R --> C[cline]
+    C --> Clinerules[.clinerules]
+    R --> Cu[cursor]
+    Cu --> Cursorrules[.cursorrules]
+    R --> W[windsurf]
+    W --> Wrules[.windsurfrules (共通)]
+    W --> WS[shopify]
+    WS --> WShopifyrules[.windsurfrules (Shopify)]
+    W --> WR[remix-cloudflare]
+    WR --> WRules[.windsurfrules (Remix+CF)]
+    A --> Docs[docs]
+    A --> Mem[memory-bank]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#bfb,stroke:#333,stroke-width:2px
-    style S fill:#bfb,stroke:#333,stroke-width:2px
-    style F fill:#bfb,stroke:#333,stroke-width:2px
+    style R fill:#ccf,stroke:#333,stroke-width:1px
+    style C fill:#bbf,stroke:#333,stroke-width:1px
+    style Cu fill:#bbf,stroke:#333,stroke-width:1px
+    style W fill:#bbf,stroke:#333,stroke-width:1px
+    style Clinerules fill:#bfb,stroke:#333,stroke-width:1px
+    style Cursorrules fill:#bfb,stroke:#333,stroke-width:1px
+    style Wrules fill:#dfd,stroke:#333,stroke-width:1px
+    style WS fill:#ddf,stroke:#333,stroke-width:1px
+    style WR fill:#ddf,stroke:#333,stroke-width:1px
+    style WShopifyrules fill:#bfb,stroke:#333,stroke-width:1px
+    style WRules fill:#bfb,stroke:#333,stroke-width:1px
+    style Docs fill:#eee,stroke:#333,stroke-width:1px
+    style Mem fill:#eee,stroke:#333,stroke-width:1px
 ```
 
 ## ルールセット構造
@@ -171,10 +183,15 @@ flowchart TD
 ## AI アシスタント別の使用方法
 
 ### Cline
-Cline AIアシスタントでは、`.clinerules` ファイルを直接参照して、特定の開発環境やフレームワークに最適化された支援を提供します。
-- *使用方法*: プロンプトに「@cline rules/cline/.clinerules」を含めることで、Next.js開発用の設定を適用します。
+Cline AIアシスタントでは、`rules/cline/.clinerules` ファイルを直接参照して、特定の開発環境やフレームワークに最適化された支援を提供します。このファイルには、メモリバンクや関連ドキュメントへの参照、Cline固有の動作指示が含まれています。
+- *使用方法*: プロンプトに「@cline rules/cline/.clinerules」を含めることで、定義されたルールセットを適用します。
+
+### Cursor
+Cursor AIアシスタント（コード編集特化）では、`rules/cursor/.cursorrules` ファイルを参照して、コーディング規約、プロジェクト構造、セキュリティガイドラインに基づいたコード編集やリファクタリングを行います。
+- *使用方法*: (Cursorのルールファイル指定方法に従ってください。通常、プロジェクトルートに設定ファイルがあるか、設定で指定します。このリポジトリのルールを適用するには、内容をCursorの設定に反映させるか、プロンプトで主要なルールを指示する必要があるかもしれません。)
 
 ### WindSurf
-WindSurf AIアシスタントでは、`.windsurfrules` ファイルを使用して、特定の開発環境に特化した支援を受けられます。
-- *Shopify開発*: プロンプト内で「@windsurf rules/windsurf/shopify/.windsurfrules」を指定します。
-- *Remix Cloudflare開発*: プロンプト内で「@windsurf rules/windsurf/remix-cloudflare/.windsurfrules」を指定します。
+WindSurf AIアシスタントでは、プロジェクトに応じた `.windsurfrules` ファイルを使用して、特定の開発環境に特化した支援を受けられます。各プロジェクト用のルールファイルは、`rules/windsurf/.windsurfrules` にある共通ルールを継承（または内部にコピー）し、その上でプロジェクト固有の技術スタック、規約、制約を定義しています。
+- *Shopify開発*: プロンプト内で「@windsurf rules/windsurf/shopify/.windsurfrules」を指定します。このファイルには共通ルールとShopify特化ルールの両方が含まれています。
+- *Remix Cloudflare開発*: プロンプト内で「@windsurf rules/windsurf/remix-cloudflare/.windsurfrules」を指定します。このファイルには共通ルールとRemix+Cloudflare特化ルールの両方が含まれています。
+- *(注意)*: AIによっては、複数のルールファイルを同時に参照できる場合があります。その場合は、共通ルール (`rules/windsurf/.windsurfrules`) と特化ルールを別々に指定することも可能です。上記は、特化ファイル内に共通ルールをコピーする前提での指示です。
