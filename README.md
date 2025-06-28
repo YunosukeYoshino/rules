@@ -1,197 +1,197 @@
-# AI ルールリポジトリ
+# Claude Code ベストプラクティス & ノウハウリポジトリ
 
-このリポジトリは、様々なAIアシスタント用のルールセットを集めたものです。各開発環境やフレームワークに特化したAIアシスタンスを最適化することを目的としています。
+このリポジトリは、**Claude Code**を使用した効率的な開発のためのベストプラクティス、設定ファイル、ナレッジベースを集約したものです。2024-2025年の最新Claude Codeベストプラクティスを完全統合し、生産性向上を実現します。
 
-## リポジトリ構造
+## 🎯 プロジェクト概要
+
+**目的**: AI Rules Repository - Claude Code特化の開発環境最適化
+**技術スタック**: Next.js 15 + TypeScript + Drizzle ORM + Hono + TanStack Query + Tailwind CSS
+**生産性目標**: 45分タスク → 1パス完了の効率化実現
+
+## 📂 リポジトリ構造
 
 ```mermaid
 graph TD
-    A[AI Rules Repository] --> R[rules]
-    R --> C[cline]
-    C --> Clinerules[.clinerules]
-    R --> Cu[cursor]
-    Cu --> Cursorrules[.cursorrules]
-    R --> W[windsurf]
-    W --> Wrules[".windsurfrules (共通)"]
-    W --> WS[shopify]
-    WS --> WShopifyrules[".windsurfrules (Shopify)"]
-    W --> WR[remix-cloudflare]
-    WR --> WRules[".windsurfrules (Remix+CF)"]
-    A --> Docs[docs]
-    A --> Mem[memory-bank]
+    A[Claude Code Repository] --> B[".claude/"]
+    B --> C["commands/ (カスタムコマンド)"]
+    B --> D["docs/ (技術ドキュメント)"]
+    B --> E["common-patterns.md"]
+    B --> F["context.md"]
+    B --> G["project-knowledge.md"]
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style R fill:#ccf,stroke:#333,stroke-width:1px
-    style C fill:#bbf,stroke:#333,stroke-width:1px
-    style Cu fill:#bbf,stroke:#333,stroke-width:1px
-    style W fill:#bbf,stroke:#333,stroke-width:1px
-    style Clinerules fill:#bfb,stroke:#333,stroke-width:1px
-    style Cursorrules fill:#bfb,stroke:#333,stroke-width:1px
-    style Wrules fill:#dfd,stroke:#333,stroke-width:1px
-    style WS fill:#ddf,stroke:#333,stroke-width:1px
-    style WR fill:#ddf,stroke:#333,stroke-width:1px
-    style WShopifyrules fill:#bfb,stroke:#333,stroke-width:1px
-    style WRules fill:#bfb,stroke:#333,stroke-width:1px
-    style Docs fill:#eee,stroke:#333,stroke-width:1px
-    style Mem fill:#eee,stroke:#333,stroke-width:1px
+    A --> H["CLAUDE.md (メインルール)"]
+    A --> I["README.md (本ファイル)"]
+
+    C --> C1["/gemini-search"]
+    C --> C2["/analyze-structure"]
+    C --> C3["/debug-workflow"]
+    C --> C4["/implement-feature"]
+    C --> C5["/refactor-code"]
+
+    D --> D1["global/ (グローバル規約)"]
+    D --> D2["backend/ (バックエンド技術)"]
+    D --> D3["frontend/ (フロントエンド技術)"]
+    D --> D4["structure/ (アーキテクチャ)"]
+    D --> D5["testing/ (テスト戦略)"]
+
+    style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    style H fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
 ```
 
-## ルールセット構造
+## 🚀 Claude Code 統合ワークフロー
+
+### Explore-Plan-Code-Commit パターン
 
 ```mermaid
-mindmap
-    root((AIルール構造))
-        基本動作原則
-            指示の理解
-            分析とプランニング
-            実装と検証
-            フィードバック
-        技術要件
-            コア技術
-            フレームワーク
-            開発ツール
-        品質管理
-            コード品質
-            パフォーマンス
-            セキュリティ
-            UI/UX
-        実装プロセス
-            分析フェーズ
-            実装フェーズ
-            検証フェーズ
-            最終確認
+flowchart LR
+    A[🔍 Explore] --> B[📋 Plan]
+    B --> C[⚡ Code]
+    C --> D[📝 Commit]
+
+    A --> A1[コードベース理解<br/>アーキテクチャ把握]
+    B --> B1[ultrathink使用<br/>詳細計画立案]
+    C --> C1[TDD実装<br/>段階的検証]
+    D --> D1[適切なコミット<br/>品質確保]
+
+    style A fill:#e3f2fd,stroke:#01579b
+    style B fill:#fff3e0,stroke:#e65100
+    style C fill:#e8f5e8,stroke:#2e7d32
+    style D fill:#fce4ec,stroke:#ad1457
 ```
 
-## 現在のルールセット
+## 🎯 核となる最適化ポイント
 
-### Windsurf Shopifyルール
-`windsurf/shopify/.windsurfrules` に配置
+### 1. **コンテキスト管理戦略**
+- **`/clear`**: 新タスク開始時の完全コンテキストリセット
+- **`/compact`**: 自然な区切りでのコンテキスト要約（手動推奨）
+- **要約戦略**: 5Kトークン程度の事前マークダウン仕様書作成
+- **チャンキング**: ディレクトリ単位での段階的作業分割
 
+### 2. **メモリ階層活用**
 ```mermaid
-graph LR
-    A[Shopifyルール] --> B[技術要件]
-    A --> C[開発プロセス]
-    A --> D[品質基準]
+graph TD
+    A[メモリ階層構造] --> B[CLAUDE.md<br/>常時読み込み]
+    A --> C[".claude/docs/<br/>オンデマンド参照"]
+    A --> D[".claude/commands/<br/>自動化ワークフロー"]
 
-    B --> B1[Liquid]
-    B --> B2[JavaScript]
-    B --> B3[SCSS]
+    B --> B1["@README.md<br/>プロジェクト概要"]
+    B --> B2["@package.json<br/>スクリプト確認"]
 
-    C --> C1[テンプレート]
-    C --> C2[セクション]
-    C --> C3[スニペット]
+    C --> C1["@.claude/docs/global/*<br/>グローバル規約"]
+    C --> C2["@.claude/docs/structure/*<br/>アーキテクチャ"]
 
-    D --> D1[パフォーマンス]
-    D --> D2[アクセシビリティ]
-    D --> D3[最適化]
+    D --> D1["/review_pr<br/>コードレビュー"]
+    D --> D2["/debug_session<br/>デバッグループ"]
 ```
 
-### Windsurf Remix Cloudflareルール
-`windsurf/remix-cloudflare/.windsurfrules` に配置
+### 3. **TDD最適化パターン**
+1. **テスト先行指示**: 「TDDで進める」を明示してモック実装回避
+2. **失敗確認**: テスト実行で期待通りの失敗を確認
+3. **実装分離**: テスト修正禁止を徹底して設計保持
+4. **段階的成功**: 全テスト通過まで反復的実装継続
+5. **AIとTDDの親和性**: 幻覚対策とスコープドリフト防止に最適
 
-```mermaid
-graph LR
-    A[Remix Cloudflareルール] --> B[技術スタック]
-    A --> C[開発プロセス]
-    A --> D[デプロイメント]
+## 🛠️ カスタムコマンド活用
 
-    B --> B1[Remix]
-    B --> B2[TypeScript]
-    B --> B3[Cloudflare Workers]
-    B --> B4[D1 Database]
-    
-    C --> C1[ルーティング]
-    C --> C2[データローダー]
-    C --> C3[アクション]
-    
-    D --> D1[Wrangler]
-    D --> D2[環境変数]
-    D --> D3[CI/CD]
-```
+`.claude/commands/`ディレクトリ内のカスタムコマンド例：
 
-### Cline Next.js開発ルール
-`cline/.clinerules` に配置
+| コマンド | 用途 | 効果 |
+|---------|------|------|
+| `/review_pr` | PR向け体系的コードレビュー | 品質保証の自動化 |
+| `/debug_session` | 構造化デバッグループ | 問題解決の効率化 |
+| `/security_audit` | セキュリティ脆弱性スキャン | セキュリティ品質向上 |
+| `/test_coverage` | テストカバレッジ分析 | テスト品質可視化 |
+| `/performance_profile` | パフォーマンス分析 | 最適化提案生成 |
+
+## 📈 パフォーマンス監視指標
+
+- **生産性目標**: 45分タスク → 1パス完了の効率化実現
+- **品質メトリクス**: テスト通過率100%・コード規約違反ゼロ維持
+- **コスト効率化**: トークン消費監視・並列ツール実行活用
+- **自動化率向上**: カスタムコマンドによる反復作業削減
+
+## 🔧 技術スタック統合
 
 ```mermaid
 graph LR
-    A[Next.js開発ルール] --> B[技術スタック]
-    A --> C[開発環境設定]
-    A --> D[AI駆動ルール]
-    A --> E[セキュリティ]
-    A --> F[コーディング規約]
+    A[Next.js 15] --> B[TypeScript]
+    B --> C[Drizzle ORM]
+    C --> D[Hono API]
+    D --> E[TanStack Query]
+    E --> F[Tailwind CSS]
 
-    B --> B1[Next.js]
-    B --> B2[TypeScript]
-    B --> B3[Drizzle]
-    B --> B4[TanStack Query]
-    B --> B5[Hono]
-    
-    C --> C1[VSCode設定]
-    C --> C2[Biome設定]
-    
-    D --> D1[実装ドキュメント]
-    D --> D2[コード生成]
-    D --> D3[知識共有]
-    
-    E --> E1[機密管理]
-    E --> E2[API認証]
-    
-    F --> F1[型安全性]
-    F --> F2[コンポーネント設計]
+    A --> A1[App Router<br/>Server Components]
+    C --> C1[Type-safe SQL<br/>Schema管理]
+    D --> D1[軽量API<br/>エッジ対応]
+    E --> E1[データフェッチ<br/>キャッシュ最適化]
+
+    style A fill:#000000,color:#ffffff
+    style B fill:#3178c6,color:#ffffff
+    style C fill:#c5f74f,color:#000000
+    style D fill:#e36002,color:#ffffff
+    style E fill:#ff4154,color:#ffffff
+    style F fill:#06b6d4,color:#ffffff
 ```
 
-## 拡張計画
+## 🎓 ベストプラクティス
 
-```mermaid
-timeline
-    title 拡張ロードマップ
-    section 現在
-        Windsurf Shopifyルール
-        Windsurf Remix Cloudflareルール
-        Cline Next.js開発ルール
-    section Phase 1
-        AI駆動開発ルール : コード生成最適化
-    section Phase 2
-        フレームワーク固有ルール : Vue/React Native
-    section Phase 3
-        特殊環境ルール : Cloud/Mobile/AI
+### Claude Code公式ガイダンス
+- [Anthropic公式ドキュメント](https://docs.anthropic.com/en/docs/claude-code)
+- [GitHub: awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
+- [TDD with Claude Code](https://thenewstack.io/claude-code-and-the-art-of-test-driven-development/)
+
+### 日本語コミュニティ知見
+- [Zenn: Claude Code ベストプラクティス](https://zenn.dev/farstep/articles/claude-code-best-practices)
+- [Zenn: 私のマイCLAUDE.md解説](https://zenn.dev/dirtyman/articles/ddbec05fd9fbb4)
+- [Zenn: Claude Code 逆引きコマンド事典](https://zenn.dev/ml_bear/articles/84e92429698177)
+
+## 🚦 クイックスタート
+
+1. **リポジトリクローン**
+```bash
+git clone https://github.com/YunosukeYoshino/rules.git
+cd rules
 ```
 
-## ルールセットの実装プロトコル
-
-```mermaid
-flowchart TD
-    A[新規ルールセット提案] --> B{要件分析}
-    B --> C[技術スタック定義]
-    C --> D[プロトコル設計]
-    D --> E[実装ガイドライン]
-    E --> F[テストと検証]
-    F --> G{承認}
-    G --> |Yes| H[リポジトリ統合]
-    G --> |No| D
+2. **CLAUDE.mdの確認**
+```bash
+cat CLAUDE.md  # メインルールファイル確認
 ```
 
-## 貢献ガイドライン
+3. **カスタムコマンドの活用**
+```bash
+# Claude Code起動後
+/gemini-search "検索クエリ"  # Gemini検索
+/analyze-structure           # プロジェクト構造分析
+/implement-feature          # 機能実装ワークフロー
+```
 
-新しいルールセットを追加する際は：
-1. 既存のディレクトリ構造に従う
-2. 包括的なドキュメントを含める
-3. 一貫した形式を維持する
-4. 複数のAI間での互換性を考慮する
-5. AI固有のベストプラクティスに従う
+4. **プロジェクトへの適用**
+```bash
+# 自分のプロジェクトにCLAUDE.mdをコピー
+cp CLAUDE.md /path/to/your/project/
+cp -r .claude /path/to/your/project/
+```
 
-## AI アシスタント別の使用方法
+## 🤝 貢献ガイドライン
 
-### Cline
-Cline AIアシスタントでは、`rules/cline/.clinerules` ファイルを直接参照して、特定の開発環境やフレームワークに最適化された支援を提供します。このファイルには、メモリバンクや関連ドキュメントへの参照、Cline固有の動作指示が含まれています。
-- *使用方法*: プロンプトに「@cline rules/cline/.clinerules」を含めることで、定義されたルールセットを適用します。
+### 新しいベストプラクティス追加
+1. `.claude/docs/`内の適切なカテゴリに配置
+2. `CLAUDE.md`で統合ポイントを参照
+3. 実証されたワークフローのみを含める
+4. 日本語・英語併記を維持
 
-### Cursor
-Cursor AIアシスタント（コード編集特化）では、`rules/cursor/.cursorrules` ファイルを参照して、コーディング規約、プロジェクト構造、セキュリティガイドラインに基づいたコード編集やリファクタリングを行います。
-- *使用方法*: (Cursorのルールファイル指定方法に従ってください。通常、プロジェクトルートに設定ファイルがあるか、設定で指定します。このリポジトリのルールを適用するには、内容をCursorの設定に反映させるか、プロンプトで主要なルールを指示する必要があるかもしれません。)
+### カスタムコマンド開発
+1. `.claude/commands/`に新規Markdownファイル作成
+2. `$ARGUMENTS`キーワードでパラメータ化
+3. 再利用可能な形式で設計
+4. 使用例とドキュメントを含める
 
-### WindSurf
-WindSurf AIアシスタントでは、プロジェクトに応じた `.windsurfrules` ファイルを使用して、特定の開発環境に特化した支援を受けられます。各プロジェクト用のルールファイルは、`rules/windsurf/.windsurfrules` にある共通ルールを継承（または内部にコピー）し、その上でプロジェクト固有の技術スタック、規約、制約を定義しています。
-- *Shopify開発*: プロンプト内で「@windsurf rules/windsurf/shopify/.windsurfrules」を指定します。このファイルには共通ルールとShopify特化ルールの両方が含まれています。
-- *Remix Cloudflare開発*: プロンプト内で「@windsurf rules/windsurf/remix-cloudflare/.windsurfrules」を指定します。このファイルには共通ルールとRemix+Cloudflare特化ルールの両方が含まれています。
-- *(注意)*: AIによっては、複数のルールファイルを同時に参照できる場合があります。その場合は、共通ルール (`rules/windsurf/.windsurfrules`) と特化ルールを別々に指定することも可能です。上記は、特化ファイル内に共通ルールをコピーする前提での指示です。
+## 📝 ライセンス
+
+MIT License - 自由に使用、修正、配布可能
+
+---
+
+**🎯 目標**: Claude Code の力を最大限に活用し、開発生産性を革新的に向上させる
